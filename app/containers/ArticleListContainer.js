@@ -1,17 +1,25 @@
 import {connect} from 'react-redux';
-import {fetchArticles} from '../actions/index'
-import ArticleList from '../components/ArticleList'
+import ArticleList from '../components/ArticleList';
+import {loadMoreArticles} from '../actions/LoadMoreArticles';
 
 const mapStateToProps = state => {
-  let fetching = state.articles.fetching
+  let store = state.articles
   return {
-    fetching,
-    articles: fetching
+    fetching: store.fetching_articles,
+    articles: (store.fetching_articles && !store.data)
       ? {}
-      : state.articles.data
+      : store.data
   }
 }
 
-const ArticleListContainer = connect(mapStateToProps)(ArticleList)
+const mapDispatchToProps = dispatch => {
+  return {
+    onButtonLoadMoreClick: offset => {
+      dispatch(loadMoreArticles(offset))
+    }
+  }
+}
+
+const ArticleListContainer = connect(mapStateToProps, mapDispatchToProps)(ArticleList)
 
 export default ArticleListContainer
