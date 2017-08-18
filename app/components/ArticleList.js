@@ -2,7 +2,7 @@ import React from 'react'
 import Article from './Article'
 import {Button} from 'react-bootstrap';
 
-const ArticleList = ({fetching, articles, onButtonLoadMoreClick}) => {
+const ArticleList = ({fetching, articles, onButtonLoadMoreClick, onArticleLinkClick}) => {
   let text = "Load more"
   if (fetching && articles.length > 0) {
     text = "Loading..."
@@ -13,7 +13,7 @@ const ArticleList = ({fetching, articles, onButtonLoadMoreClick}) => {
   return (
     <div >
       <ul>
-        {articles.map((article, index) => (<Article key={index} {...article}/>))}
+        {articles.map((article) => (<Article key={article.id} title={article.title} onClick={() => onArticleLinkClick(article.url)}/>))}
       </ul>
       <Button onClick={() => onButtonLoadMoreClick(articles.length)}>
         {text}

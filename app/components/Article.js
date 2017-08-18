@@ -1,12 +1,10 @@
 import React from 'react'
 
-const Article = ({url, title}) => (
+const Article = ({title, onClick}) => (
   <div>
     {/* <img src={img.url} alt="Smiley face" height="250px" width="250x"/> */}
-    <li>
-      <a href={url}>
-        {title}
-      </a>
+    <li onClick={onClick}>
+      {title}
     </li>
   </div>
 )

@@ -1,5 +1,8 @@
 export const STARTING_ARTICLES_REQUEST = 'STARTING_ARTICLES_REQUEST'
 export const FINISHED_ARTICLES_REQUEST = 'FINISHED_ARTICLES_REQUEST'
+export const STARTING_ARTICLES_BODY_REQUEST = 'STARTING_ARTICLES_BODY_REQUEST'
+export const FINISHED_ARTICLES_BODY_REQUEST = 'FINISHED_ARTICLES_BODY_REQUEST'
+
 
 export const startingRequest = () => {
   return {type: STARTING_ARTICLES_REQUEST}
@@ -8,6 +11,15 @@ export const startingRequest = () => {
 export const finishedRequest = (response = {}) => {
   return {type: FINISHED_ARTICLES_REQUEST, response}
 }
+
+export const startingArticleBodyRequest = () => {
+  return {type: STARTING_ARTICLES_BODY_REQUEST}
+}
+
+export const finishedArticleBodyRequest = (response = {}) => {
+  return {type: FINISHED_ARTICLES_BODY_REQUEST, response}
+}
+
 
 export const setRequest = (body) => {
   let request = new XMLHttpRequest();

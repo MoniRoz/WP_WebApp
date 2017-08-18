@@ -2,7 +2,7 @@ import {routerReducer as routing} from 'react-router-redux';
 import {combineReducers} from 'redux';
 import {STARTING_ARTICLES_REQUEST, FINISHED_ARTICLES_REQUEST} from '../actions/index'
 
-const articles = (state = {
+const articlesHeaders = (state = {
   amount: 0,
   data: []
 }, action) => {
@@ -26,6 +26,6 @@ const articles = (state = {
   }
 }
 
-const rootReducer = combineReducers({routing, articles});
+const rootReducer = combineReducers({routing, articlesHeaders});
 
 export default rootReducer;
