@@ -7,9 +7,9 @@ const mapStateToProps = state => {
   let store = state.articlesHeaders
   return {
     fetching: store.fetching_articles,
-    articles: (store.fetching_articles && !store.data)
+    articles: (store.fetching_articles && !store.headers)
       ? {}
-      : store.data
+      : store.headers
   }
 }
 
