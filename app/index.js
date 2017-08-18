@@ -10,8 +10,8 @@ store.dispatch(fetchArticles());
 
 render(
   <AppContainer>
-  <Root store={store} history={history}/>
-</AppContainer>, document.getElementById('root'));
+    <Root store={store} history={history}/>
+  </AppContainer>, document.getElementById('root'));
 
 if (module.hot) {
   module.hot.accept('./containers/Root', () => {
