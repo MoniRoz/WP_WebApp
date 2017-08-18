@@ -1,6 +1,6 @@
 import {routerReducer as routing} from 'react-router-redux';
 import {combineReducers} from 'redux';
-import {STARTING_ARTICLES_REQUEST, FINISHED_ARTICLES_REQUEST} from '../actions/Types'
+import {STARTING_ARTICLES_REQUEST, FINISHED_ARTICLES_REQUEST} from '../actions/index'
 
 const articles = (state = {
   amount: 0,
