@@ -15,8 +15,8 @@ export const startingArticleBodyRequest = () => {
   return {type: STARTING_ARTICLES_BODY_REQUEST}
 }
 
-export const finishedArticleBodyRequest = (response = {}, index) => {
-  return {type: FINISHED_ARTICLES_BODY_REQUEST, response, index}
+export const finishedArticleBodyRequest = (response = {}) => {
+  return {type: FINISHED_ARTICLES_BODY_REQUEST, response}
 }
 
 export const setRequest = (body) => {

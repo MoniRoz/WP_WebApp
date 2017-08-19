@@ -1,8 +1,8 @@
 import {startingArticleBodyRequest, finishedArticleBodyRequest, setRequest} from './index'
 
-const ARTICLE_BODY_QUERY = "query GetArticleBody($url: String!){article(url:$url){title img{url w h} body{data}}}"
+const ARTICLE_BODY_QUERY = "query GetArticleBody($url: String!){article(url:$url){id title img{url w h} body{data}}}"
 
-export const getArticleBody = (url,index) => {
+export const getArticleBody = (url) => {
   return dispatch => {
     dispatch(startingArticleBodyRequest());
     let request = setRequest(JSON.stringify({
@@ -13,7 +13,7 @@ export const getArticleBody = (url,index) => {
     }));
     request.onreadystatechange = function() {
       if (request.readyState === 4) {
-        dispatch(finishedArticleBodyRequest(JSON.parse(request.response),index));
+        dispatch(finishedArticleBodyRequest(JSON.parse(request.response)));
       }
     }
   }

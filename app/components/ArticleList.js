@@ -21,10 +21,10 @@ const ArticleList = ({fetching, page, articles, onButtonLoadMoreClick, onArticle
           <Row className="show-grid">
             <Col xs={12} md={5}>test</Col>
             <Col xs={12} md={7}>
-              {articles.map((article, index) => (<ArticleLink key={index} id={index} title={article.title} ts={article.ts} onClick={() => onArticleLinkClick(article.url, index)}/>))}</Col>
+              {articles.map((article,index) => (<ArticleLink key={index} id={article.id} title={article.title} img={article.img} onClick={() => onArticleLinkClick(article.url)}/>))}</Col>
           </Row>
           <Row className="show-grid">
-            <Button className={styles.setButton}onClick={() => onButtonLoadMoreClick(page * 10)}>
+            <Button className={styles.setButton}onClick={() => onButtonLoadMoreClick(page * 5)}>
               {text}
             </Button>
           </Row>

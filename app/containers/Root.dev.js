@@ -14,7 +14,7 @@ export default function Root({store, history}) {
         <ConnectedRouter history={history}>
           <Switch>
             <Route exact path="/" component={PageContainer}/>
-            <Route path="/article/:index" component={PageArticle}/>
+            <Route path="/article/:id" component={PageArticle}/>
           </Switch>
         </ConnectedRouter>
         <DevTools/>
