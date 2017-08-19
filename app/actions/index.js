@@ -21,7 +21,7 @@ export const finishedArticleBodyRequest = (response = {}, index) => {
 
 export const setRequest = (body) => {
   let request = new XMLHttpRequest();
-  request.open("POST", 'https://cors-anywhere.herokuapp.com/https://mobileapi.wp.pl/v1/graphql', true);
+  request.open("POST",'http://localhost:9090/https://mobileapi.wp.pl/v1/graphql', true);
   request.setRequestHeader("Content-Type", "application/json");
   request.send(body);
   return request;

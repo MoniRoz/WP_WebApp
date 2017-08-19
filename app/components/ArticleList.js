@@ -1,8 +1,9 @@
 import React from 'react'
 import ArticleLink from './ArticleLink'
-import {Button} from 'react-bootstrap';
+import {Button, Grid, Row, Col} from 'react-bootstrap';
+import styles from './css/ArticleList.scss';
 
-const ArticleList = ({fetching, articles, onButtonLoadMoreClick, onArticleLinkClick}) => {
+const ArticleList = ({fetching, page, articles, onButtonLoadMoreClick, onArticleLinkClick}) => {
   let text = "Load more"
   if (fetching && articles.length > 0) {
     text = "Loading..."
@@ -11,14 +12,25 @@ const ArticleList = ({fetching, articles, onButtonLoadMoreClick, onArticleLinkCl
     return <ul>Loading..</ul>
 
   return (
-    <div>
-      <ul>
-        {articles.map((article, index) => (<ArticleLink key={index} id={index} title={article.title} onClick={() => onArticleLinkClick(article.url, index)}/>))}
-      </ul>
-      <Button onClick={() => onButtonLoadMoreClick(articles.length)}>
-        {text}
-      </Button>
-    </div>
+    <Grid>
+      <div className={styles.newsContainer}>
+        <div className={styles.tabHeader}>
+          <span className={styles.tabName}>WIADOMOŚCI</span>
+        </div>
+        <div className={styles.tabContent}>
+          <Row className="show-grid">
+            <Col xs={12} md={5}>test</Col>
+            <Col xs={12} md={7}>
+              {articles.map((article, index) => (<ArticleLink key={index} id={index} title={article.title} ts={article.ts} onClick={() => onArticleLinkClick(article.url, index)}/>))}</Col>
+          </Row>
+          <Row className="show-grid">
+            <Button className={styles.setButton}onClick={() => onButtonLoadMoreClick(page * 10)}>
+              {text}
+            </Button>
+          </Row>
+        </div>
+      </div>
+    </Grid>
   )
 
 };

@@ -35,9 +35,10 @@ const readArticles = (state = {
 }
 
 const articlesHeaders = (state = {
-  amount: 0,
+  page: 0,
   headers: []
 }, action) => {
+  console.log(state);
   switch (action.type) {
     case STARTING_ARTICLES_REQUEST:
       return Object.assign({}, state, {fetching_articles: true});
@@ -46,9 +47,8 @@ const articlesHeaders = (state = {
       let articles = action.response.data.articles
       return Object.assign({}, state, {
         fetching_articles: false,
-        amount: state.amount + articles.length,
+        page: state.page + 1,
         headers: [
-          ...state.headers,
           ...articles
         ]
       });
