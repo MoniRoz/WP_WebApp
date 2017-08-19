@@ -1,5 +1,14 @@
 import React from 'react'
 import ArticleBody from './ArticleBody'
+import styles from './css/Article.scss';
+import {
+  Grid,
+  Row,
+  Col,
+  PageHeader,
+  Image,
+  Media
+} from 'react-bootstrap';
 
 const Article = ({match, fetching, articles}) => {
   var element;
@@ -10,15 +19,26 @@ const Article = ({match, fetching, articles}) => {
   for (var article of articles) {
     if (article.index == match.params.index) {
       element = (
-        <div>
-          {article.title}
-          {article.body.map((body, index) => (<ArticleBody key={index} content={body.data}/>))}
-        </div>
+        <Grid>
+          <Row className={"show-grid" + ' ' + styles.rowContainer}>
+            <PageHeader style={{
+              textAlign: "center"
+            }} className={styles.header}>
+              {article.title}
+            </PageHeader>
+            <Media>
+              <img src={article.img.url}></img>
+              <div className={styles.articleText}>
+                {article.body.map((body, index) => (<ArticleBody key={index} content={body.data}/>))}</div>
+            </Media>
+          </Row>
+        </Grid>
+
       )
     }
   }
 
-  return <div>{element}</div>
+  return <div className={styles.rootBackground}>{element}</div>
 
 }
 export default Article

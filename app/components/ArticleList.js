@@ -7,11 +7,11 @@ const ArticleList = ({fetching, articles, onButtonLoadMoreClick, onArticleLinkCl
   if (fetching && articles.length > 0) {
     text = "Loading..."
   }
-  if (fetching && !(articles.length > 0)) 
+  if (fetching && !(articles.length > 0))
     return <ul>Loading..</ul>
 
   return (
-    <div >
+    <div>
       <ul>
         {articles.map((article, index) => (<ArticleLink key={index} id={index} title={article.title} onClick={() => onArticleLinkClick(article.url, index)}/>))}
       </ul>

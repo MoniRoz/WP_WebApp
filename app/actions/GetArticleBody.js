@@ -1,6 +1,6 @@
 import {startingArticleBodyRequest, finishedArticleBodyRequest, setRequest} from './index'
 
-const ARTICLE_BODY_QUERY = "query GetArticleBody($url: String!){article(url:$url){title body{data}}}"
+const ARTICLE_BODY_QUERY = "query GetArticleBody($url: String!){article(url:$url){title img{url w h} body{data}}}"
 
 export const getArticleBody = (url,index) => {
   return dispatch => {
