@@ -11,11 +11,14 @@ const readArticles = (state = {
 
     case FINISHED_ARTICLES_BODY_REQUEST:
       let article = action.response.data.article
+      console.log(action);
       return Object.assign({}, state, {
         fetching_body: false,
         articles: [
-          ...state.articles,
-          article
+          ...state.articles, {
+            index: action.index,
+            ...article
+          }
         ]
       });
 

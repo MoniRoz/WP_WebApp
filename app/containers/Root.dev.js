@@ -4,16 +4,19 @@ import {Provider} from 'react-redux';
 import {Route} from 'react-router-dom';
 import {ConnectedRouter} from 'react-router-redux';
 import DevTools from './DevTools';
-import ArticleListContainer from './ArticleListContainer';
+import PageContainer from './PageContainer';
 
 export default function Root({store, history}) {
   return (
     <Provider store={store}>
       <div>
-        <ArticleListContainer/>
+        <ConnectedRouter history={history}>
+          <Route exact path="/" component={PageContainer}/>
+        </ConnectedRouter>
         <DevTools/>
       </div>
     </Provider>
+
   );
 }
 

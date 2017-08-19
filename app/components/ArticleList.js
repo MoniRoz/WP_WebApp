@@ -1,5 +1,5 @@
 import React from 'react'
-import Article from './Article'
+import ArticleLink from './ArticleLink'
 import {Button} from 'react-bootstrap';
 
 const ArticleList = ({fetching, articles, onButtonLoadMoreClick, onArticleLinkClick}) => {
@@ -13,7 +13,7 @@ const ArticleList = ({fetching, articles, onButtonLoadMoreClick, onArticleLinkCl
   return (
     <div >
       <ul>
-        {articles.map((article) => (<Article key={article.id} title={article.title} onClick={() => onArticleLinkClick(article.url)}/>))}
+        {articles.map((article, index) => (<ArticleLink key={index} id={index} title={article.title} onClick={() => onArticleLinkClick(article.url, index)}/>))}
       </ul>
       <Button onClick={() => onButtonLoadMoreClick(articles.length)}>
         {text}

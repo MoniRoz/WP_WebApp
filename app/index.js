@@ -11,7 +11,7 @@ store.dispatch(fetchArticles());
 
 render(
   <AppContainer>
-  <Root store={store} history={history}/>
+    <Root store={store} history={history}/>
 </AppContainer>, document.getElementById('root'));
 
 if (module.hot) {
@@ -22,7 +22,7 @@ if (module.hot) {
     const NewRoot = require('./containers/Root').default;
     render(
       <AppContainer>
-      <NewRoot store={newStore} history={newHistory}/>
+        <NewRoot store={newStore} history={newHistory}/>
     </AppContainer>, document.getElementById('root'));
   });
 }
