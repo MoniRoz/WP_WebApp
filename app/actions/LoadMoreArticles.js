@@ -1,6 +1,6 @@
 import {startingRequest, finishedRequest, setRequest} from './index';
 
-const LOAD_MORE_ARTICLES_QUERY = "query getArticles($offset: Int) {articles(offset: $offset, limit: 10, service: [Wiadomosci],t: [Article]) {url title}}"
+const LOAD_MORE_ARTICLES_QUERY = "query getArticles($offset: Int) {articles(offset: $offset, limit: 5, service: [Wiadomosci],t: [Article]) {id ts url title img{url}}}"
 
 export const loadMoreArticles = (offset = 0) => {
   return dispatch => {

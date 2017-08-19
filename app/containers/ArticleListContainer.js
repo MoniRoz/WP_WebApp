@@ -5,7 +5,7 @@ import {getArticleBody} from '../actions/GetArticleBody';
 
 const mapStateToProps = state => {
   let store = state.articlesHeaders
-  return {fetching: store.fetching_articles, articles: store.headers}
+  return {fetching: store.fetching_articles, page: store.page, articles: store.headers}
 }
 
 const mapDispatchToProps = dispatch => {
@@ -13,8 +13,8 @@ const mapDispatchToProps = dispatch => {
     onButtonLoadMoreClick: offset => {
       dispatch(loadMoreArticles(offset))
     },
-    onArticleLinkClick: (url, index) => {
-      dispatch(getArticleBody(url, index))
+    onArticleLinkClick: (url) => {
+      dispatch(getArticleBody(url))
     }
   }
 }

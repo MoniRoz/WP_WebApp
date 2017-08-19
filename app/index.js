@@ -7,7 +7,7 @@ import {fetchArticles} from './actions/GetArticles'
 import 'bootstrap/dist/css/bootstrap.css';
 
 const store = configureStore();
-store.dispatch(fetchArticles());
+store.dispatch(fetchArticles("Wiadomosci"));
 
 render(
   <AppContainer>

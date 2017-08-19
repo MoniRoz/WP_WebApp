@@ -1,0 +1,24 @@
+.linkToArticle {
+  font-family: 'Roboto',sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 15px 0;
+  color: #111;
+}
+
+.linkToArticle a {
+  padding: 20px 0;
+  color: #111;
+}
+
+.linkToArticle a:hover {
+  text-decoration: none;
+  opacity: 0.5;
+}
+
+time {
+  font-family: 'Open Sans',arial,sans-serif;
+  font-size: 12px;
+  color: #aaa;
+  line-height: 1;
+}

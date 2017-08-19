@@ -17,7 +17,10 @@ const Article = ({match, fetching, articles}) => {
       <ul>Loading..</ul>
     )
   for (var article of articles) {
-    if (article.index == match.params.index) {
+    if (article.id == match.params.id) {
+      let img = null;
+      if (article.img)
+        img = <img src={article.img.url} className={styles.articleImg}></img>
       element = (
         <Grid>
           <Row className={"show-grid" + ' ' + styles.rowContainer}>
@@ -27,9 +30,9 @@ const Article = ({match, fetching, articles}) => {
               {article.title}
             </PageHeader>
             <Media>
-              <img src={article.img.url}></img>
+              {img}
               <div className={styles.articleText}>
-                {article.body.map((body, index) => (<ArticleBody key={index} content={body.data}/>))}</div>
+                {article.body.map((body, index) => (<ArticleBody key={index} {...body}/>))}</div>
             </Media>
           </Row>
         </Grid>
