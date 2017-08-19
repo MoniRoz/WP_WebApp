@@ -1,19 +1,26 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {Provider} from 'react-redux';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {ConnectedRouter} from 'react-router-redux';
 import DevTools from './DevTools';
-import ArticleListContainer from './ArticleListContainer';
+import PageContainer from './PageContainer';
+import PageArticle from './PageArticle'
 
 export default function Root({store, history}) {
   return (
     <Provider store={store}>
       <div>
-        <ArticleListContainer/>
+        <ConnectedRouter history={history}>
+          <Switch>
+            <Route exact path="/" component={PageContainer}/>
+            <Route path="/article/:index" component={PageArticle}/>
+          </Switch>
+        </ConnectedRouter>
         <DevTools/>
       </div>
     </Provider>
+
   );
 }
 
