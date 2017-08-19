@@ -1,5 +1,5 @@
 import {startingRequest, finishedRequest, setRequest} from './index'
-const ARTICLES_BASE_QUERY = "{articles(limit:5,service:[Wiadomosci],t:[Article]){id url title img{url}}}"
+const ARTICLES_BASE_QUERY = "{articles(limit:5,service:[Wiadomosci],t:[Article]){id ts url title img{url}}}"
 
 export const fetchArticles = () => {
   return dispatch => {
