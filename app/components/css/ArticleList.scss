@@ -1,11 +1,13 @@
 .tabHeader {
-  border-bottom: 1px solid #000;
+  font-family: 'Roboto',sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  border-bottom: 2px solid #7f8fa9;
 }
 
 .tabName {
   display: inline-block;
-  background-color: red;
-  padding: 10px 25px;
+  padding: 10px 25px 10px 0;
 }
 
 .newsContainer {
