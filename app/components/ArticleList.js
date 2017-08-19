@@ -1,5 +1,6 @@
 import React from 'react'
-import ArticleLink from './ArticleLink'
+import PrimaryArticleLink from './PrimaryArticleLink'
+import SecondaryArticleLink from './SecondaryArticleLink'
 import {Button, Grid, Row, Col} from 'react-bootstrap';
 import styles from './css/ArticleList.scss';
 
@@ -19,12 +20,12 @@ const ArticleList = ({fetching, page, articles, onButtonLoadMoreClick, onArticle
         </div>
         <div className={styles.tabContent}>
           <Row className="show-grid">
-            <Col xs={12} md={5}>test</Col>
-            <Col xs={12} md={7}>
-              {articles.map((article,index) => (<ArticleLink key={index} {...article} onClick={() => onArticleLinkClick(article.url)}/>))}</Col>
+            <Col xs={12} md={7}><PrimaryArticleLink {...articles[0]} onClick={() => onArticleLinkClick(articles[0].url)}/></Col>
+            <Col xs={12} md={5}>
+              {articles.slice().splice(1).map((article,index) => (<SecondaryArticleLink key={index} {...article} onClick={() => onArticleLinkClick(article.url)}/>))}</Col>
           </Row>
           <Row className="show-grid">
-            <Button className={styles.setButton}onClick={() => onButtonLoadMoreClick(page * 5)}>
+            <Button className={styles.setButton} onClick={() => onButtonLoadMoreClick(page * 5)}>
               {text}
             </Button>
           </Row>

@@ -1,12 +1,14 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import {Media} from 'react-bootstrap';
-import styles from './css/ArticleLink.scss';
+import styles from './css/SecondaryArticleLink.scss';
+
 const returnProperDate = (timestamp) => {
   var options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(timestamp * 1000).toLocaleDateString('pl-PL',options);
 }
-const ArticleLink = ({id, title, img, ts, onClick}) => (
+
+const SecondaryArticleLink = ({id, title, img, ts, onClick}) => (
   <Media>
     <Media.Left align="middle">
       <img src={img
@@ -25,4 +27,4 @@ const ArticleLink = ({id, title, img, ts, onClick}) => (
   </Media>
 )
 
-export default ArticleLink
+export default SecondaryArticleLink
