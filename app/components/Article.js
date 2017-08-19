@@ -32,7 +32,7 @@ const Article = ({match, fetching, articles}) => {
             <Media>
               {img}
               <div className={styles.articleText}>
-                {article.body.map((body, index) => (<ArticleBody key={index} content={body.data}/>))}</div>
+                {article.body.map((body, index) => (<ArticleBody key={index} {...body}/>))}</div>
             </Media>
           </Row>
         </Grid>

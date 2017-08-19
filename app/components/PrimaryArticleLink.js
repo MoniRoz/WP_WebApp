@@ -14,9 +14,10 @@ const returnProperDate = (timestamp) => {
 
 const PrimaryArticleLink = ({id, title, img, ts, onClick}) => {
   return (
-
     <div className={styles.image} style={{
-      backgroundImage: `url(${img.url})`
+      backgroundImage: `url(${img
+        ? img.url
+        : null})`
     }}>
       <h2 className={style.linkToArticle + " " + styles.title}>
         <li className={styles.linkToArticle} onClick={onClick}>
