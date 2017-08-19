@@ -2,11 +2,13 @@ import {connect} from 'react-redux';
 import Article from '../components/Article';
 
 const mapStateToProps = state => {
-  let store = state.readArticle
+  let store = state.readArticles
   return {
-    fetching: store.fetching_articles,
-    articles: (store.fetching_articles && !store.headers)
-      ? {}
-      : store.headers
+    fetching: store.fetching_body,
+    articles: store.articles
   }
 }
+
+const PageArticle = connect(mapStateToProps)(Article)
+
+export default PageArticle

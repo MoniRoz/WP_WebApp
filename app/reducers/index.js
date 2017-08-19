@@ -2,6 +2,19 @@ import {routerReducer as routing} from 'react-router-redux';
 import {combineReducers} from 'redux';
 import {STARTING_ARTICLES_REQUEST, FINISHED_ARTICLES_REQUEST, STARTING_ARTICLES_BODY_REQUEST, FINISHED_ARTICLES_BODY_REQUEST} from '../actions/index'
 
+const returnArticlesArray = (article, index, articles) => {
+  for (var store_articles of articles) {
+    if (index === store_articles.index)
+      return [...articles]
+  }
+  return [
+    ...articles, {
+      index,
+      ...article
+    }
+  ]
+}
+
 const readArticles = (state = {
   articles: []
 }, action) => {
@@ -11,15 +24,9 @@ const readArticles = (state = {
 
     case FINISHED_ARTICLES_BODY_REQUEST:
       let article = action.response.data.article
-      console.log(action);
       return Object.assign({}, state, {
         fetching_body: false,
-        articles: [
-          ...state.articles, {
-            index: action.index,
-            ...article
-          }
-        ]
+        articles: returnArticlesArray(article, action.index, state.articles)
       });
 
     default:

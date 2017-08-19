@@ -7,7 +7,7 @@ const ArticleList = ({fetching, articles, onButtonLoadMoreClick, onArticleLinkCl
   if (fetching && articles.length > 0) {
     text = "Loading..."
   }
-  if (!(articles.length > 0))
+  if (fetching && !(articles.length > 0)) 
     return <ul>Loading..</ul>
 
   return (

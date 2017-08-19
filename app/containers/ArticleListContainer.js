@@ -5,12 +5,7 @@ import {getArticleBody} from '../actions/GetArticleBody';
 
 const mapStateToProps = state => {
   let store = state.articlesHeaders
-  return {
-    fetching: store.fetching_articles,
-    articles: (store.fetching_articles && !store.headers)
-      ? {}
-      : store.headers
-  }
+  return {fetching: store.fetching_articles, articles: store.headers}
 }
 
 const mapDispatchToProps = dispatch => {
