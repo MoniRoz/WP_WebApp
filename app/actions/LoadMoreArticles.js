@@ -1,6 +1,4 @@
-import {startingRequest, finishedRequest, setRequest} from './index';
-
-const LOAD_MORE_ARTICLES_QUERY = "query getArticles($offset: Int) {articles(offset: $offset, limit: 5, service: [Wiadomosci],t: [Article]) {id ts url title img{url}}}"
+import {startingRequest, finishedRequest, setRequest,LOAD_MORE_ARTICLES_QUERY} from './const';
 
 export const loadMoreArticles = (offset = 0) => {
   return dispatch => {

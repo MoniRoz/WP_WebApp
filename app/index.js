@@ -3,12 +3,15 @@ import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {configureStore, history} from './store/configureStore';
 import Root from './containers/Root';
-import {fetchArticles} from './actions/GetArticles'
+import {getNews} from './actions/GetNews'
+import {getTech} from './actions/GetTech'
+import {getStars} from './actions/GetStars'
 import 'bootstrap/dist/css/bootstrap.css';
 
 const store = configureStore();
-store.dispatch(fetchArticles("Wiadomosci"));
-
+store.dispatch(getNews());
+store.dispatch(getTech());
+store.dispatch(getStars());
 render(
   <AppContainer>
     <Root store={store} history={history}/>

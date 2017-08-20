@@ -1,8 +1,10 @@
+$break-medium: 600px;
+
 .tabHeader {
   font-family: 'Roboto',sans-serif;
   font-size: 20px;
   line-height: 1;
-  border-bottom: 2px solid #7f8fa9;
+  border-bottom: 2px solid #000;
 }
 
 .tabName {
@@ -11,8 +13,10 @@
 }
 
 .newsContainer {
-  // border: 1px solid #000;
-  padding: 10px;
+  padding: 10px 40px;
+  @media screen and (max-width: $break-medium) {
+    padding: 10px 15px;
+  }
 }
 
 .tabContent {
