@@ -19,7 +19,6 @@ export const getServicesArticles = (service, page) => {
     request.onreadystatechange = function() {
       if (request.readyState === XMLHttpRequest.DONE) {
         if (request.status === 200) {
-          dispatch(cleaReadArticles(service));
           dispatch(finishedRequest(JSON.parse(request.response), service, page));
         } else
           dispatch(logError(service));

@@ -17,7 +17,7 @@ const PrimaryArticleLink = ({id, title, img, ts, onClick}) => {
     <div className={styles.image} style={{
       backgroundImage: `url(${img
         ? img.url
-        : null})`
+        : require('../assets/standart.jpg')})`
     }}>
       <h2 className={style.linkToArticle + " " + styles.title}>
         <li className={styles.linkToArticle} onClick={onClick}>
