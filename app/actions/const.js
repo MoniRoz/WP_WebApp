@@ -11,8 +11,6 @@ const LOAD_MORE_ARTICLES_QUERY = "query getArticles($offset: Int) {articles(offs
 * requests
 */
 
-export const STARTING_ARTICLES_REQUEST = 'STARTING_ARTICLES_REQUEST'
-export const FINISHED_ARTICLES_REQUEST = 'FINISHED_ARTICLES_REQUEST'
 export const STARTING_ARTICLES_BODY_REQUEST = 'STARTING_ARTICLES_BODY_REQUEST'
 export const FINISHED_ARTICLES_BODY_REQUEST = 'FINISHED_ARTICLES_BODY_REQUEST'
 
@@ -28,12 +26,26 @@ export const FINISHED_STARS_REQUEST = 'FINISHED_STARS_REQUEST'
 /*
 *  actions
 */
-export const startingRequest = () => {
-  return {type: STARTING_ARTICLES_REQUEST}
+export const startingRequest = (service = "Wiadomosci") => {
+  switch (service) {
+    case "Wiadomosci":
+      return {type: STARTING_NEWS_REQUEST};
+    case "Tech":
+      return {type: STARTING_TECH_REQUEST};
+    case "Gwiazdy":
+      return {type: STARTING_STARS_REQUEST};
+  }
 }
 
 export const finishedRequest = (response = {}, service = "Wiadomosci") => {
-  return {type: FINISHED_ARTICLES_REQUEST, response, service}
+  switch (service) {
+    case "Wiadomosci":
+      return {type: FINISHED_NEWS_REQUEST, response}
+    case "Tech":
+      return {type: FINISHED_TECH_REQUEST, response}
+    case "Gwiazdy":
+      return {type: FINISHED_STARS_REQUEST, response}
+  }
 }
 
 export const startingArticleBodyRequest = () => {
@@ -42,30 +54,6 @@ export const startingArticleBodyRequest = () => {
 
 export const finishedArticleBodyRequest = (response = {}) => {
   return {type: FINISHED_ARTICLES_BODY_REQUEST, response}
-}
-
-export const startingNewsRequest = () => {
-  return {type: STARTING_NEWS_REQUEST}
-}
-
-export const finishedNewsRequest = (response = {}) => {
-  return {type: FINISHED_NEWS_REQUEST, response}
-}
-
-export const startingTechRequest = () => {
-  return {type: STARTING_TECH_REQUEST}
-}
-
-export const finishedTechRequest = (response = {}) => {
-  return {type: FINISHED_TECH_REQUEST, response}
-}
-
-export const startingStarsRequest = () => {
-  return {type: STARTING_STARS_REQUEST}
-}
-
-export const finishedStarsRequest = (response = {}) => {
-  return {type: FINISHED_STARS_REQUEST, response}
 }
 
 export const setRequest = (body) => {

@@ -12,7 +12,7 @@ const ArticleList = ({
   borderColor,
   onArticleLinkClick
 }) => {
-  if (fetching && !(articles.length > 0))
+  if (fetching || !(articles.length > 0))
     return <ul>Loading..</ul>
 
   return (

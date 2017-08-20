@@ -3,18 +3,17 @@ import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {configureStore, history} from './store/configureStore';
 import Root from './containers/Root';
-import {getNews} from './actions/GetNews'
-import {getTech} from './actions/GetTech'
-import {getStars} from './actions/GetStars'
+import {getServicesArticles} from './actions/GetServicesArticles'
 import 'bootstrap/dist/css/bootstrap.css';
 
 const store = configureStore();
-store.dispatch(getNews());
-store.dispatch(getTech());
-store.dispatch(getStars());
+store.dispatch(getServicesArticles("Wiadomosci"));
+store.dispatch(getServicesArticles("Tech"));
+store.dispatch(getServicesArticles("Gwiazdy"));
+
 render(
   <AppContainer>
-    <Root store={store} history={history}/>
+  <Root store={store} history={history}/>
 </AppContainer>, document.getElementById('root'));
 
 if (module.hot) {
@@ -25,7 +24,7 @@ if (module.hot) {
     const NewRoot = require('./containers/Root').default;
     render(
       <AppContainer>
-        <NewRoot store={newStore} history={newHistory}/>
+      <NewRoot store={newStore} history={newHistory}/>
     </AppContainer>, document.getElementById('root'));
   });
 }

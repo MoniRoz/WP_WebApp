@@ -30,6 +30,5 @@ const PrimaryArticleLink = ({id, title, img, ts, onClick}) => {
       </h2>
     </div>
   )
-
 }
 export default PrimaryArticleLink
