@@ -10,6 +10,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    onButtonLoadMoreClick: offset => {
+      dispatch(loadMoreArticles(offset))
+    },
     onArticleLinkClick: (url) => {
       dispatch(getArticleBody(url))
     }

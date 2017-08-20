@@ -5,11 +5,14 @@ import {getArticleBody} from '../actions/GetArticleBody';
 
 const mapStateToProps = state => {
   let store = state.techReducer
-  return {fetching: store.fetching, page: store.page, articles: store.tech, title: "TECHNOLOGIE",borderColor: "#e91e63"}
+  return {fetching: store.fetching, page: store.page, articles: store.tech, title: "TECHNOLOGIE", borderColor: "#e91e63"}
 }
 
 const mapDispatchToProps = dispatch => {
   return {
+    onButtonLoadMoreClick: (offset, service) => {
+      dispatch(loadMoreArticles(offset, service))
+    },
     onArticleLinkClick: (url) => {
       dispatch(getArticleBody(url))
     }
