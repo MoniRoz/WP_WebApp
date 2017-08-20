@@ -5,7 +5,7 @@ export const ARTICLES_BASE_QUERY = "query GetArticle($service:ServiceName){artic
 
 export const ARTICLE_BODY_QUERY = "query GetArticleBody($url: String!){article(url:$url){id title img{url} body{data t}}}"
 
-const LOAD_MORE_ARTICLES_QUERY = "query getArticles($offset: Int,$service:ServiceName) {articles(offset: $offset, limit: 5, service: [$service],t: [Article]) {id ts url title img{url}}}"
+export const LOAD_MORE_ARTICLES_QUERY = "query getArticles($offset: Int,$service:ServiceName) {articles(offset: $offset, limit: 5, service: [$service],t: [Article]) {id ts url title img{url}}}"
 
 /*
 * requests

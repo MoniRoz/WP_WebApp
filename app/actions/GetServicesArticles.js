@@ -2,7 +2,7 @@ import {startingRequest, finishedRequest, setRequest, ARTICLES_BASE_QUERY} from 
 
 export const getServicesArticles = (service) => {
   return dispatch => {
-    dispatch(startingRequest(), service);
+    dispatch(startingRequest(service));
     let request = setRequest(JSON.stringify({
       "query": ARTICLES_BASE_QUERY,
       "variables": {
@@ -11,7 +11,7 @@ export const getServicesArticles = (service) => {
     }));
     request.onreadystatechange = function() {
       if (request.readyState === 4) {
-        dispatch(finishedRequest(JSON.parse(request.response),service));
+        dispatch(finishedRequest(JSON.parse(request.response), service));
       }
     }
   }

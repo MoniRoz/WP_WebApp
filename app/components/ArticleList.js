@@ -10,6 +10,8 @@ const ArticleList = ({
   articles,
   title,
   borderColor,
+  service,
+  onButtonLoadMoreClick,
   onArticleLinkClick
 }) => {
   if (fetching || !(articles.length > 0))
@@ -30,8 +32,8 @@ const ArticleList = ({
               {articles.slice().splice(1).map((article, index) => (<SecondaryArticleLink key={index} {...article} onClick={() => onArticleLinkClick(article.url)}/>))}</Col>
           </Row>
           <Row className="show-grid">
-            <Button className={styles.setButton}>
-              JESTEM
+            <Button className={styles.setButton} onClick={() => onButtonLoadMoreClick(page * 5, service)}>
+              Więcej
             </Button>
           </Row>
         </div>
