@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import ArticleList from '../components/ArticleList';
-import {loadMoreArticles} from '../actions/LoadMoreArticles';
+import {loadArticles} from '../actions/LoadArticles';
 import {getArticleBody} from '../actions/GetArticleBody';
 
 const mapStateToProps = state => {
@@ -18,10 +18,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onButtonLoadMoreClick: (offset, service, page) => {
-      dispatch(loadMoreArticles(offset, service, page))
+      dispatch(loadArticles(offset, service, page))
     },
-    onArticleLinkClick: (url) => {
-      dispatch(getArticleBody(url))
+    onArticleLinkClick: (url, service) => {
+      dispatch(getArticleBody(url, service))
     }
   }
 }

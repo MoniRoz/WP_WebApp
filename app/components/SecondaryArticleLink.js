@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import {Media} from 'react-bootstrap';
-import styles from './css/SecondaryArticleLink.scss';
+import styles from '../styles/SecondaryArticleLink.scss';
 
 const returnProperDate = (timestamp) => {
   var options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -13,7 +13,7 @@ const SecondaryArticleLink = ({id, title, img, ts, onClick}) => (
     <Media.Left align="middle">
       <img src={img
         ? img.url
-        : null} width={110} height={80}/>
+        : require('../assets/standart.jpg')} width={110} height={80}/>
     </Media.Left>
     <Media.Body>
       <Media.Heading>

@@ -1,4 +1,5 @@
 $break-medium: 600px;
+$break-large: 1000px;
 
 .articleImg {
   width: 55%;
@@ -20,16 +21,16 @@ $break-medium: 600px;
 
 .articleText {
   font-family: Verdana,Geneva,sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   margin-bottom: 60px;
 }
 
 .rowContainer {
-  padding: 0 40px;
   border: solid rgba(185, 176, 176, 0.44);
   border-width: 0 1px 0 1px;
   min-height: 100vh;
   background-color: white;
+  padding:5px 40px;
 }
 
 .rootBackground {

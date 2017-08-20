@@ -3,7 +3,6 @@ import {returnPageNumber} from './index';
 
 const initialState = {
   fetching: false,
-  error: false,
   page: 0,
   stars: []
 }
@@ -21,10 +20,7 @@ const starsReducer = (state = initialState, action) => {
         stars: [...articles]
       });
     case ERROR_STARS_REQUEST:
-      return Object.assign({}, state, {
-        fetching: false,
-        error: true
-      });
+      return Object.assign({}, state, {fetching: false});
 
     default:
       return state;

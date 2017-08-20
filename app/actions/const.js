@@ -3,16 +3,18 @@
 */
 export const ARTICLES_BASE_QUERY = "query GetArticle($service:ServiceName){articles(limit:5,service:[$service],t:[Article]){id ts url title img{url}}}"
 
-export const ARTICLE_BODY_QUERY = "query GetArticleBody($url: String!){article(url:$url){id title img{url} body{data t}}}"
+export const ARTICLE_BODY_QUERY = "query GetArticleBody($url: String!){article(url:$url){id title img{url} body{data}}}"
 
 export const LOAD_MORE_ARTICLES_QUERY = "query getArticles($offset: Int,$service:ServiceName) {articles(offset: $offset, limit: 5, service: [$service],t: [Article]) {id ts url title img{url}}}"
 
 /*
 * requests
 */
+export const CLEAR_ARTICLES = 'CLEAR_ARTICLES'
 
 export const STARTING_ARTICLES_BODY_REQUEST = 'STARTING_ARTICLES_BODY_REQUEST'
 export const FINISHED_ARTICLES_BODY_REQUEST = 'FINISHED_ARTICLES_BODY_REQUEST'
+export const ERROR_ARTICLES_BODY_REQUEST = 'ERROR_ARTICLES_BODY_REQUEST'
 
 export const STARTING_NEWS_REQUEST = 'STARTING_NEWS_REQUEST'
 export const FINISHED_NEWS_REQUEST = 'FINISHED_NEWS_REQUEST'
@@ -55,8 +57,12 @@ export const startingArticleBodyRequest = () => {
   return {type: STARTING_ARTICLES_BODY_REQUEST}
 }
 
-export const finishedArticleBodyRequest = (response = {}) => {
-  return {type: FINISHED_ARTICLES_BODY_REQUEST, response}
+export const finishedArticleBodyRequest = (response = {}, service) => {
+  return {type: FINISHED_ARTICLES_BODY_REQUEST, response, service}
+}
+
+export const cleaReadArticles = (service) => {
+  return {type: CLEAR_ARTICLES, service}
 }
 
 export const logError = (service) => {
@@ -70,9 +76,13 @@ export const logError = (service) => {
   }
 }
 
+export const logLoadArticleBodyError = () => {
+  return {type: ERROR_ARTICLES_BODY_REQUEST}
+}
+
 export const setRequest = (body) => {
   let request = new XMLHttpRequest();
-  request.open("POST", 'http://localhost:9090/https://mobileapi.wp.pl/v1/graphql', true);
+  request.open("POST", 'https://cors-anywhere.herokuapp.com/https://mobileapi.wp.pl/v1/graphql', true);
   request.setRequestHeader("Content-Type", "application/json");
   request.send(body);
   return request;

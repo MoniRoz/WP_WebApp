@@ -5,6 +5,7 @@ const mapStateToProps = state => {
   let store = state.readArticles
   return {
     fetching: store.fetching,
+    error: store.error,
     articles: store.articles
   }
 }
