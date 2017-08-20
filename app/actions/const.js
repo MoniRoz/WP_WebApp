@@ -14,6 +14,7 @@ export const CLEAR_ARTICLES = 'CLEAR_ARTICLES'
 
 export const STARTING_ARTICLES_BODY_REQUEST = 'STARTING_ARTICLES_BODY_REQUEST'
 export const FINISHED_ARTICLES_BODY_REQUEST = 'FINISHED_ARTICLES_BODY_REQUEST'
+export const ERROR_ARTICLES_BODY_REQUEST = 'ERROR_ARTICLES_BODY_REQUEST'
 
 export const STARTING_NEWS_REQUEST = 'STARTING_NEWS_REQUEST'
 export const FINISHED_NEWS_REQUEST = 'FINISHED_NEWS_REQUEST'
@@ -73,6 +74,10 @@ export const logError = (service) => {
     case "Gwiazdy":
       return {type: ERROR_STARS_REQUEST}
   }
+}
+
+export const logLoadArticleBodyError = () => {
+  return {type: ERROR_ARTICLES_BODY_REQUEST}
 }
 
 export const setRequest = (body) => {

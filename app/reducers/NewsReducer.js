@@ -3,7 +3,6 @@ import {returnPageNumber} from './index';
 
 const initialState = {
   fetching: false,
-  error: false,
   page: 0,
   news: []
 }
@@ -23,8 +22,7 @@ const newsReducer = (state = initialState, action) => {
 
     case ERROR_NEWS_REQUEST:
       return Object.assign({}, state, {
-        fetching: false,
-        error: true
+        fetching: false
       });
 
     default:

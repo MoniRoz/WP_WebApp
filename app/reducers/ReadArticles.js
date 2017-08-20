@@ -1,7 +1,8 @@
-import {STARTING_ARTICLES_BODY_REQUEST, FINISHED_ARTICLES_BODY_REQUEST, CLEAR_ARTICLES} from '../actions/const';
+import {STARTING_ARTICLES_BODY_REQUEST, FINISHED_ARTICLES_BODY_REQUEST, ERROR_ARTICLES_BODY_REQUEST, CLEAR_ARTICLES} from '../actions/const';
 
 const initialState = {
   fetching: false,
+  error: false,
   articles: []
 }
 
@@ -41,7 +42,14 @@ const readArticles = (state = initialState, action) => {
       let article = action.response.data.article;
       return Object.assign({}, state, {
         fetching: false,
+        error: false,
         articles: returnArticlesArray(article, article.id, state.articles, action.service)
+      });
+
+    case ERROR_ARTICLES_BODY_REQUEST:
+      return Object.assign({}, state, {
+        fetching: false,
+        error: true
       });
 
     default:

@@ -4,7 +4,6 @@ import {returnPageNumber} from './index';
 const initialState = {
   fetching: false,
   page: 0,
-  error: false,
   tech: []
 }
 
@@ -23,8 +22,7 @@ const techReducer = (state = initialState, action) => {
 
     case ERROR_TECH_REQUEST:
       return Object.assign({}, state, {
-        fetching: false,
-        error: true
+        fetching: false
       });
 
     default:

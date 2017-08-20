@@ -11,12 +11,19 @@ import {
   Media
 } from 'react-bootstrap';
 
-const Article = ({match, fetching, articles}) => {
+const Article = ({match, fetching, error, articles}) => {
   var element;
   if (fetching)
-    element = (
+    return (
       <div className={loader.preloader}>
         <div className={loader.spinner}></div>
+      </div>
+    )
+
+  if (error)
+    return (
+      <div className={loader.preloader}>
+        ERROR! PAGE NOT FOUND
       </div>
     )
 
