@@ -36,3 +36,9 @@ $break-large: 1000px;
 .rootBackground {
   background-color: rgba(160, 160, 160, 0.06);
 }
+
+.rowContainer  img {
+  float: left;
+  max-height: 500px;
+  padding: 10px 15px;
+}

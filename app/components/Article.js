@@ -53,7 +53,8 @@ const Article = ({match, fetching, error, articles}) => {
 
     return (
       <div className={loader.fullPage}>
-        ERROR! PAGE NOT FOUND
+        <img src={require('../assets/warning.png')}/>
+        <p>ERROR! PAGE NOT FOUND</p>
       </div>
     )
   }

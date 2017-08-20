@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "bootstrap": "3.3.7",
+    "cors-anywhere": "0.4.0",
     "file-loader": "^0.9.0",
+    "gh-pages": "1.0.0",
     "prop-types": "^15.5.9",
     "react": "^15.0.2",
     "react-apollo": "1.4.14",
