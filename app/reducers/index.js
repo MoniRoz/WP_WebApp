@@ -12,9 +12,9 @@ export const returnPageNumber = (number, page) => {
     case 1:
       return page + 1;
     case - 1:
-      return (page = 0)
+      return (page <= 0)
         ? page
-        : page - 1
+        : (page - 1)
   }
 }
 

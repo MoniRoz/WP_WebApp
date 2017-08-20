@@ -32,7 +32,12 @@ const ArticleList = ({
               {articles.slice().splice(1).map((article, index) => (<SecondaryArticleLink key={index} {...article} onClick={() => onArticleLinkClick(article.url)}/>))}</Col>
           </Row>
           <Row className="show-grid">
-            <Button className={styles.setButton} onClick={() => onButtonLoadMoreClick((page + 1) * 5, service, 1)}>
+            <Button onClick={() => onButtonLoadMoreClick(((page <= 0)
+              ? page - 1
+              : 0) * 5, service, -1)}>
+              Mniej
+            </Button>
+            <Button onClick={() => onButtonLoadMoreClick((page + 1) * 5, service, 1)}>
               Więcej
             </Button>
           </Row>

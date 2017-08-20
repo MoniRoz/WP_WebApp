@@ -1,6 +1,6 @@
 import {startingRequest, finishedRequest, setRequest, LOAD_MORE_ARTICLES_QUERY} from './const';
 
-export const loadMoreArticles = (offset = 0, service, page = 1) => {
+export const loadArticles = (offset = 0, service, page = 1) => {
   return dispatch => {
     dispatch(startingRequest(service));
     let request = setRequest(JSON.stringify({
