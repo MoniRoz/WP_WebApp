@@ -16,12 +16,15 @@ export const FINISHED_ARTICLES_BODY_REQUEST = 'FINISHED_ARTICLES_BODY_REQUEST'
 
 export const STARTING_NEWS_REQUEST = 'STARTING_NEWS_REQUEST'
 export const FINISHED_NEWS_REQUEST = 'FINISHED_NEWS_REQUEST'
+export const ERROR_NEWS_REQUEST = 'ERROR_NEWS_REQUEST'
 
 export const STARTING_TECH_REQUEST = 'STARTING_TECH_REQUEST'
 export const FINISHED_TECH_REQUEST = 'FINISHED_TECH_REQUEST'
+export const ERROR_TECH_REQUEST = 'ERROR_TECH_REQUEST'
 
 export const STARTING_STARS_REQUEST = 'STARTING_STARS_REQUEST'
 export const FINISHED_STARS_REQUEST = 'FINISHED_STARS_REQUEST'
+export const ERROR_STARS_REQUEST = 'ERROR_STARS_REQUEST'
 
 /*
 *  actions
@@ -54,6 +57,17 @@ export const startingArticleBodyRequest = () => {
 
 export const finishedArticleBodyRequest = (response = {}) => {
   return {type: FINISHED_ARTICLES_BODY_REQUEST, response}
+}
+
+export const logError = (service) => {
+  switch (service) {
+    case "Wiadomosci":
+      return {type: ERROR_NEWS_REQUEST}
+    case "Tech":
+      return {type: ERROR_TECH_REQUEST}
+    case "Gwiazdy":
+      return {type: ERROR_STARS_REQUEST}
+  }
 }
 
 export const setRequest = (body) => {

@@ -14,7 +14,7 @@ const ArticleList = ({
   onButtonLoadMoreClick,
   onArticleLinkClick
 }) => {
-  if (fetching || !(articles.length > 0))
+  if (!(articles.length > 0) || (fetching && !(articles.length > 0))) 
     return <ul>Loading..</ul>
 
   return (

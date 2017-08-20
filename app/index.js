@@ -6,10 +6,17 @@ import Root from './containers/Root';
 import {getServicesArticles} from './actions/GetServicesArticles'
 import 'bootstrap/dist/css/bootstrap.css';
 
-const store = configureStore();
+const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {}
+
+const store = configureStore(persistedState);
+
 store.dispatch(getServicesArticles("Wiadomosci"));
 store.dispatch(getServicesArticles("Tech"));
 store.dispatch(getServicesArticles("Gwiazdy"));
+
+store.subscribe(()=>{
+  localStorage.setItem('reduxState', JSON.stringify(store.getState()))
+})
 
 render(
   <AppContainer>

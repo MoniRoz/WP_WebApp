@@ -1,7 +1,8 @@
-import {STARTING_TECH_REQUEST, FINISHED_TECH_REQUEST} from '../actions/const'
+import {STARTING_TECH_REQUEST, FINISHED_TECH_REQUEST, ERROR_TECH_REQUEST} from '../actions/const'
 const initialState = {
   fetching: false,
   page: 0,
+  error: false,
   tech: []
 }
 
@@ -16,6 +17,12 @@ const techReducer = (state = initialState, action) => {
         fetching: false,
         page: state.page + 1,
         tech: [...articles]
+      });
+
+    case ERROR_TECH_REQUEST:
+      return Object.assign({}, state, {
+        fetching: false,
+        error: true
       });
 
     default:

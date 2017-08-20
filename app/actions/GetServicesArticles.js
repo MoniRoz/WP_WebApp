@@ -1,4 +1,4 @@
-import {startingRequest, finishedRequest, setRequest, ARTICLES_BASE_QUERY} from './const'
+import {startingRequest, finishedRequest, logError, setRequest, ARTICLES_BASE_QUERY} from './const'
 
 export const getServicesArticles = (service) => {
   return dispatch => {
@@ -10,9 +10,12 @@ export const getServicesArticles = (service) => {
       }
     }));
     request.onreadystatechange = function() {
-      if (request.readyState === 4) {
-        dispatch(finishedRequest(JSON.parse(request.response), service));
+      if (request.readyState === XMLHttpRequest.DONE) {
+        if (request.status === 200)
+          dispatch(finishedRequest(JSON.parse(request.response), service));
+        else 
+          dispatch(logError(service));
+        }
       }
-    }
   }
 }

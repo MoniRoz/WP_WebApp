@@ -1,7 +1,6 @@
 import {startingRequest, finishedRequest, setRequest, LOAD_MORE_ARTICLES_QUERY} from './const';
 
 export const loadMoreArticles = (offset = 0, service) => {
-  console.log("Service:", service);
   return dispatch => {
     dispatch(startingRequest(service));
     let request = setRequest(JSON.stringify({
@@ -12,9 +11,12 @@ export const loadMoreArticles = (offset = 0, service) => {
       }
     }));
     request.onreadystatechange = function() {
-      if (request.readyState === 4) {
-        dispatch(finishedRequest(JSON.parse(request.response), service));
+      if (request.readyState === XMLHttpRequest.DONE) {
+        if (request.status === 200)
+          dispatch(finishedRequest(JSON.parse(request.response), service));
+        else
+          dispatch(logError(service));
+        }
       }
-    }
   }
 }
