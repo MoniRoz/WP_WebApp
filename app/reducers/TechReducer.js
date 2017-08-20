@@ -1,4 +1,6 @@
-import {STARTING_TECH_REQUEST, FINISHED_TECH_REQUEST, ERROR_TECH_REQUEST} from '../actions/const'
+import {STARTING_TECH_REQUEST, FINISHED_TECH_REQUEST, ERROR_TECH_REQUEST} from '../actions/const';
+import {returnPageNumber} from './index';
+
 const initialState = {
   fetching: false,
   page: 0,
@@ -15,7 +17,7 @@ const techReducer = (state = initialState, action) => {
       let articles = action.response.data.articles
       return Object.assign({}, state, {
         fetching: false,
-        page: state.page + 1,
+        page: returnPageNumber(action.page, state.page),
         tech: [...articles]
       });
 

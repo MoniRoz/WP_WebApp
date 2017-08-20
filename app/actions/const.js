@@ -40,14 +40,14 @@ export const startingRequest = (service = "Wiadomosci") => {
   }
 }
 
-export const finishedRequest = (response = {}, service = "Wiadomosci") => {
+export const finishedRequest = (response = {}, service = "Wiadomosci", page = 0) => {
   switch (service) {
     case "Wiadomosci":
-      return {type: FINISHED_NEWS_REQUEST, response}
+      return {type: FINISHED_NEWS_REQUEST, response, page}
     case "Tech":
-      return {type: FINISHED_TECH_REQUEST, response}
+      return {type: FINISHED_TECH_REQUEST, response, page}
     case "Gwiazdy":
-      return {type: FINISHED_STARS_REQUEST, response}
+      return {type: FINISHED_STARS_REQUEST, response, page}
   }
 }
 

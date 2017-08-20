@@ -1,6 +1,7 @@
 import {startingRequest, finishedRequest, logError, setRequest, ARTICLES_BASE_QUERY} from './const'
 
-export const getServicesArticles = (service) => {
+export const getServicesArticles = (service, page) => {
+  console.log(page);
   return dispatch => {
     dispatch(startingRequest(service));
     let request = setRequest(JSON.stringify({
@@ -12,8 +13,8 @@ export const getServicesArticles = (service) => {
     request.onreadystatechange = function() {
       if (request.readyState === XMLHttpRequest.DONE) {
         if (request.status === 200)
-          dispatch(finishedRequest(JSON.parse(request.response), service));
-        else 
+          dispatch(finishedRequest(JSON.parse(request.response), service, page));
+        else
           dispatch(logError(service));
         }
       }

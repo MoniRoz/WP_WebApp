@@ -6,15 +6,17 @@ import Root from './containers/Root';
 import {getServicesArticles} from './actions/GetServicesArticles'
 import 'bootstrap/dist/css/bootstrap.css';
 
-const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {}
+const persistedState = localStorage.getItem('reduxState')
+  ? JSON.parse(localStorage.getItem('reduxState'))
+  : {}
 
 const store = configureStore(persistedState);
 
-store.dispatch(getServicesArticles("Wiadomosci"));
-store.dispatch(getServicesArticles("Tech"));
-store.dispatch(getServicesArticles("Gwiazdy"));
+store.dispatch(getServicesArticles("Wiadomosci", 0));
+store.dispatch(getServicesArticles("Tech", 0));
+store.dispatch(getServicesArticles("Gwiazdy", 0));
 
-store.subscribe(()=>{
+store.subscribe(() => {
   localStorage.setItem('reduxState', JSON.stringify(store.getState()))
 })
 

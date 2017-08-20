@@ -1,4 +1,6 @@
-import {STARTING_STARS_REQUEST, FINISHED_STARS_REQUEST, ERROR_STARS_REQUEST} from '../actions/const'
+import {STARTING_STARS_REQUEST, FINISHED_STARS_REQUEST, ERROR_STARS_REQUEST} from '../actions/const';
+import {returnPageNumber} from './index';
+
 const initialState = {
   fetching: false,
   error: false,
@@ -15,7 +17,7 @@ const starsReducer = (state = initialState, action) => {
       let articles = action.response.data.articles
       return Object.assign({}, state, {
         fetching: false,
-        page: state.page + 1,
+        page: returnPageNumber(action.page, state.page),
         stars: [...articles]
       });
     case ERROR_STARS_REQUEST:

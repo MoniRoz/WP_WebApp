@@ -14,7 +14,7 @@ const ArticleList = ({
   onButtonLoadMoreClick,
   onArticleLinkClick
 }) => {
-  if (!(articles.length > 0) || (fetching && !(articles.length > 0))) 
+  if (!(articles.length > 0) || (fetching && !(articles.length > 0)))
     return <ul>Loading..</ul>
 
   return (
@@ -32,7 +32,7 @@ const ArticleList = ({
               {articles.slice().splice(1).map((article, index) => (<SecondaryArticleLink key={index} {...article} onClick={() => onArticleLinkClick(article.url)}/>))}</Col>
           </Row>
           <Row className="show-grid">
-            <Button className={styles.setButton} onClick={() => onButtonLoadMoreClick(page * 5, service)}>
+            <Button className={styles.setButton} onClick={() => onButtonLoadMoreClick((page + 1) * 5, service, 1)}>
               Więcej
             </Button>
           </Row>

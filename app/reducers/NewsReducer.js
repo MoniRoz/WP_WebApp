@@ -1,4 +1,6 @@
-import {STARTING_NEWS_REQUEST, FINISHED_NEWS_REQUEST, ERROR_NEWS_REQUEST} from '../actions/const'
+import {STARTING_NEWS_REQUEST, FINISHED_NEWS_REQUEST, ERROR_NEWS_REQUEST} from '../actions/const';
+import {returnPageNumber} from './index';
+
 const initialState = {
   fetching: false,
   error: false,
@@ -12,10 +14,10 @@ const newsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {fetching: true});
 
     case FINISHED_NEWS_REQUEST:
-      let articles = action.response.data.articles
+      let articles = action.response.data.articles;
       return Object.assign({}, state, {
         fetching: false,
-        page: state.page + 1,
+        page: returnPageNumber(action.page, state.page),
         news: [...articles]
       });
 

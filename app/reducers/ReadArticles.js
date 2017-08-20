@@ -1,4 +1,4 @@
-import {STARTING_ARTICLES_BODY_REQUEST, FINISHED_ARTICLES_BODY_REQUEST} from '../actions/const'
+import {STARTING_ARTICLES_BODY_REQUEST, FINISHED_ARTICLES_BODY_REQUEST} from '../actions/const';
 
 const initialState = {
   fetching: false,
