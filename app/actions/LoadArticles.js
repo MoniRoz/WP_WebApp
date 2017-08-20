@@ -1,4 +1,4 @@
-import {startingRequest, finishedRequest, setRequest, LOAD_MORE_ARTICLES_QUERY} from './const';
+import {startingRequest, finishedRequest, setRequest,cleaReadArticles, LOAD_MORE_ARTICLES_QUERY} from './const';
 
 export const loadArticles = (offset = 0, service, page = 1) => {
   return dispatch => {
@@ -12,9 +12,10 @@ export const loadArticles = (offset = 0, service, page = 1) => {
     }));
     request.onreadystatechange = function() {
       if (request.readyState === XMLHttpRequest.DONE) {
-        if (request.status === 200)
+        if (request.status === 200) {
+          dispatch(cleaReadArticles(service));
           dispatch(finishedRequest(JSON.parse(request.response), service, page));
-        else
+        } else
           dispatch(logError(service));
         }
       }

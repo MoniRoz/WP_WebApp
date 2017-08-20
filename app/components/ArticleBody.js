@@ -1,12 +1,11 @@
 import React from 'react'
 
-const ArticleBody = ({data, t}) => {
+const ArticleBody = ({data}) => {
   let element = null;
-  if (t == 'Video') {} else {
-    element = <div dangerouslySetInnerHTML={{
-      __html: data
-    }}></div>
-  }
+  element = <div dangerouslySetInnerHTML={{
+    __html: data
+  }}></div>
+
   return element
 }
 

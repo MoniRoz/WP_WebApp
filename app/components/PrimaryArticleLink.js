@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-import style from './css/SecondaryArticleLink.scss';
-import styles from './css/PrimaryArticleLink.scss';
+import style from '../styles/SecondaryArticleLink.scss';
+import styles from '../styles/PrimaryArticleLink.scss';
 
 const returnProperDate = (timestamp) => {
   var options = {

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import {Media} from 'react-bootstrap';
-import styles from './css/SecondaryArticleLink.scss';
+import styles from '../styles/SecondaryArticleLink.scss';
 
 const returnProperDate = (timestamp) => {
   var options = { year: 'numeric', month: 'long', day: 'numeric' };

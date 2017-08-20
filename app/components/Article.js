@@ -1,6 +1,7 @@
 import React from 'react'
 import ArticleBody from './ArticleBody'
-import styles from './css/Article.scss';
+import styles from '../styles/Article.scss';
+import loader from '../styles/loader.scss'
 import {
   Grid,
   Row,
@@ -14,8 +15,11 @@ const Article = ({match, fetching, articles}) => {
   var element;
   if (fetching)
     element = (
-      <ul>Loading..</ul>
+      <div className={loader.preloader}>
+        <div className={loader.spinner}></div>
+      </div>
     )
+
   for (var article of articles) {
     if (article.id == match.params.id) {
       let img = null;
