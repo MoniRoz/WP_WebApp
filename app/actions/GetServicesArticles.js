@@ -1,12 +1,12 @@
-import {startingRequest, finishedRequest, setRequest, LOAD_MORE_ARTICLES_QUERY} from './const';
+import {startingRequest, finishedRequest, logError, setRequest, ARTICLES_BASE_QUERY} from './const'
 
-export const loadMoreArticles = (offset = 0, service, page = 1) => {
+export const getServicesArticles = (service, page) => {
+  console.log(page);
   return dispatch => {
     dispatch(startingRequest(service));
     let request = setRequest(JSON.stringify({
-      "query": LOAD_MORE_ARTICLES_QUERY,
+      "query": ARTICLES_BASE_QUERY,
       "variables": {
-        "offset": offset,
         "service": service
       }
     }));
